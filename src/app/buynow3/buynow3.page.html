@@ -1,0 +1,29 @@
+<ion-content>
+  <header>
+    <!-- <ion-menu-button style="color:#fff"></ion-menu-button> --><br>
+    <ion-img src="/assets/images/header.jpeg"></ion-img>
+  </header>
+  <h2>where do we send your policy documents?</h2>
+  <form [formGroup]="buynow" (submit)="buyNow()">
+    <ion-item>
+      <ion-label position="floating">Postal address</ion-label>
+      <ion-input type="text" formControlName="address" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Suburb</ion-label>
+      <ion-input type="text" formControlName="suburb" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Town/ city</ion-label>
+      <ion-input type="text" formControlName="town" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Postal code</ion-label>
+      <ion-input type="tel" formControlName="code" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button class="button button-block button-positive" routerLink="/buynow2"> Back</ion-button>
+      <ion-button class="button button-block button-positive" type="submit"> Next</ion-button>
+    </ion-item>
+  </form>
+</ion-content>

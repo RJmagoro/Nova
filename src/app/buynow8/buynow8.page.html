@@ -1,0 +1,33 @@
+
+
+<ion-content>
+    <header>
+                    <!-- <ion-menu-button style="color:#fff"></ion-menu-button> --><br>
+                    <ion-img src="/assets/images/header.jpeg"></ion-img>
+    </header>
+    
+    <form  class="form1" >
+      <br>
+      <h4>{{pName}}</h4>
+      <h6>({{name}} {{surname}})</h6><br>
+      <h4>Premium : <b>R {{premium}}</b></h4>
+    </form>
+    <form [formGroup]="buynow" class="form2" (submit)="buyNow()">
+      <br>
+      <h3>Would you like to add Extended family?</h3><br>
+      
+      <input type = "checkbox" formControlName="extendedYes" value="yes">Yes
+    
+      <br>
+    
+      <input type = "checkbox" formControlName="extendedNo" value="no">No
+        
+        <ion-item lines="none">
+            <ion-button class="button button-block button-positive" routerLink="/buynow7" > Back</ion-button>
+            <ion-button class="button button-block button-positive" type="submit" > Next</ion-button>
+      </ion-item>
+      </form>
+      
+  </ion-content>
+  
+  

@@ -1,0 +1,7 @@
+{
+  "name": "novason",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

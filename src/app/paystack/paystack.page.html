@@ -1,0 +1,321 @@
+<ion-content>
+  <header>
+    <ion-menu-button style="color:#fff"></ion-menu-button><br>
+    <ion-img src="/assets/images/header.jpeg"></ion-img>
+  </header><br>
+  <div class="box">
+    <span *ngFor="let b of plan">
+      <span *ngIf="user.id == b.customer_id">
+        <div
+          *ngIf="b.name != 'Beef Benefit' && b.name != 'Catering Benefit' && b.name != 'Grocery Benefit' && b.name != 'Burial Cover'">
+          <ion-label>
+            <strong style="zoom:1.5;text-align: center;">
+              {{b.type}} {{b.name}}
+            </strong>
+          </ion-label>
+          <ion-text color="danger" style="float: right; margin-right: 10px;" (click)="CancelPolicy(b)"
+            *ngIf="b.isactive">
+            Cancel Policy X
+          </ion-text>
+          <ion-text color="success" style="float: right; margin-right: 10px;" (click)="ActivatePolicy(b)"
+            *ngIf="!b.isactive">
+            Activate Policy X
+          </ion-text>
+          <br />
+          <ion-text>
+            R{{b.premium_amount.toFixed(2)}}
+          </ion-text>
+        </div>
+      </span>
+    </span>
+    <div *ngIf="totalPay == 0">
+        <br />
+        <br />
+        <ion-list><strong>No active policy</strong></ion-list>
+    </div>
+    <div *ngIf="totalPay > 0">
+      <br />
+      <br />
+      <ion-list><strong>Active cover and benefits</strong>
+        <span *ngFor="let b of plan">
+          <span *ngIf="user.id == b.customer_id">
+            <span *ngIf="b.isactive">
+              <ion-item
+                *ngIf="b.name == 'Beef Benefit' || b.name == 'Catering Benefit' || b.name == 'Grocery Benefit' || b.name == 'Burial Cover'">
+                <ion-label>
+                  {{b.name}}
+                </ion-label>
+                <ion-text color="danger" (click)="CancelBenefit(b)">
+                  Deactivate X
+                </ion-text>
+              </ion-item>
+            </span>
+          </span>
+        </span>
+      </ion-list>
+      <ion-list><strong>Deactive cover and benefits</strong>
+        <span *ngFor="let b of plan">
+          <span *ngIf="user.id == b.customer_id">
+
+            <span *ngIf="!b.isactive">
+              <ion-item
+                *ngIf="b.name == 'Beef Benefit' || b.name == 'Catering Benefit' || b.name == 'Grocery Benefit' || b.name == 'Burial Cover'">
+                <ion-label>
+                  {{b.name}}
+                </ion-label>
+                <ion-text color="success" (click)="ActivateBenefit(b)">
+                  Activate <ion-icon name="checkmark"></ion-icon>
+                </ion-text>
+              </ion-item>
+            </span>
+          </span>
+        </span>
+      </ion-list>
+      <br />
+      <div class="pay">
+        Total: R {{totalPay.toFixed(2)}}<br><br>
+        <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&receiver=13982852&item_name=novasio&amount={{totalPay.toFixed(2)}}">
+        <!-- href="https://www.payfast.co.za/eng/process?cmd=_paynow&amp;receiver=13906796&amp;
+      item_name=funeral+cover&amp;item_description=Monthly+cover+fee&amp;amount={{totalPay.toFixed(2)}}"> -->
+          <img src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay"
+            title="Pay Now with PayFast" /></a>
+      </div>
+    </div>
+    <!-- 
+    <ion-list>Beef benefit
+      <ion-item>
+        <ion-label>
+          Members:
+        </ion-label>
+        <ion-row>
+          <ion-col>
+            <ion-label>
+              Single
+            </ion-label>
+            <ion-checkbox></ion-checkbox>
+
+          </ion-col>
+          <ion-col>
+            <ion-label>
+              Family
+            </ion-label>
+            <ion-checkbox></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Age: 18- 65
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Age: 66- 74
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>Grocery benefit
+      <ion-item>
+        <ion-label>
+          R 7000.00 Grocery
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 7000.00 Grocery
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+
+
+    </ion-list>
+    <ion-item>
+      <ion-label>
+        Catering benefit
+      </ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Global cover
+      </ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Burial cover
+      </ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+
+    <p>Add more benefits</p>
+    <ion-list>Cash Payout
+
+      <ion-item>
+        <ion-label>
+          Members:
+        </ion-label>
+        <ion-row>
+          <ion-col>
+            <ion-label>
+              Single
+            </ion-label>
+            <ion-checkbox></ion-checkbox>
+
+          </ion-col>
+          <ion-col>
+            <ion-label>
+              Family
+            </ion-label>
+            <ion-checkbox></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 5000. 00 cover
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 7000. 00 cover
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 8000. 00 cover
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 9000. 00 cover
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 10000. 00 cover
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 15000. 00 cover
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 20000. 00 cover
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 30000. 00 cover
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+
+    </ion-list>
+
+
+    <ion-list>Beef benefit
+      <ion-item>
+        <ion-label>
+          Members:
+        </ion-label>
+        <ion-row>
+          <ion-col>
+            <ion-label>
+              Single
+            </ion-label>
+            <ion-checkbox></ion-checkbox>
+
+          </ion-col>
+          <ion-col>
+            <ion-label>
+              Family
+            </ion-label>
+            <ion-checkbox></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          Age: 18- 65
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Age: 66- 74
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>Grocery benefit
+      <ion-item>
+        <ion-label>
+          R 7000.00 Grocery
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          R 7000.00 Grocery
+        </ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+
+
+    </ion-list>
+    <ion-item>
+      <ion-label>
+        Catering benefit
+      </ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Global cover
+      </ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Burial cover
+      </ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+
+    <br>
+    <div class="pay">
+      Total: <input type="text" name="total"><br><br>
+      <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&amp;receiver=13906796&amp;
+    item_name=funeral+cover&amp;item_description=Monthly+cover+fee&amp;amount=5.00">
+        <img src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay"
+          title="Pay Now with PayFast" /></a>
+    </div> -->
+
+    <!-- Total: <input type="text" name="total"><br> -->
+    <!-- <ol>
+  <li *ngFor="let duke of dukes">
+      {{duke.name}}
+  </li>
+
+</ol>    -->
+  </div>
+</ion-content>

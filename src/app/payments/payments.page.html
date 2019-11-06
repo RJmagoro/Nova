@@ -1,0 +1,43 @@
+
+<ion-content>
+    <header>
+                    <!-- <ion-menu-button style="color:#fff"></ion-menu-button> --><br>
+                    <ion-img src="/assets/images/header.jpeg"></ion-img>
+    </header>
+    <h2>Payment details</h2>
+    <form [formGroup]="buynow" >
+    
+          <ion-item>
+             
+            <ion-label position="floating">Card holder</ion-label>
+            <ion-input type="text" formControlName="holder" minlength="13" maxlength="13" required></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="floating">Account number</ion-label> 
+            <ion-input type="text" formControlName="number"  minlength="5" maxlength="5" required></ion-input>
+          </ion-item>
+  
+          <ion-item>
+             
+            <ion-label position="floating">Expiry date</ion-label>
+            <ion-input type="text" formControlName="date" minlength="13" maxlength="13" required></ion-input>
+          </ion-item>
+          <ion-item>
+             
+              <ion-label position="floating">CVV</ion-label>
+              <ion-input type="text" formControlName="cvv" minlength="13" maxlength="13" required></ion-input>
+            </ion-item>
+            
+             <ion-item>
+                    <ion-button class="button button-block button-positive" routerLink="/buynow10" > Back</ion-button>
+                    <ion-button class="button button-block button-positive" routerLink="/home" > Pay</ion-button>
+             </ion-item>
+                        
+                   
+    </form>
+    
+  </ion-content>
+  
+  
+  

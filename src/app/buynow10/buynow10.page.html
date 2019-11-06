@@ -1,0 +1,46 @@
+<ion-content>
+  <header>
+    <!-- <ion-menu-button style="color:#fff"></ion-menu-button> --><br>
+    <ion-img src="/assets/images/header.jpeg"></ion-img>
+  </header>
+  <h2>Extended family details?</h2>
+  <form [formGroup]="buynow" (submit)="buyNow()">
+    <ion-item>
+      <ion-label position="floating">Name(s)</ion-label>
+      <ion-input type="text" formControlName="name" minlength="3" maxlength="25" required></ion-input>
+    </ion-item>
+    <ion-text color="danger">
+      <p color="danger" style="margin-left: 5%;">{{nameErr}}</p>
+    </ion-text>
+    <ion-item>
+      <ion-label position="floating">Surname</ion-label>
+      <ion-input type="text" formControlName="surname" minlength="3" maxlength="25" required></ion-input>
+    </ion-item>
+    <ion-text color="danger">
+      <p color="danger" style="margin-left: 5%;">{{surnameErr}}</p>
+    </ion-text>
+    <ion-item>
+      <ion-select class="it" formControlName="age">
+        <ion-select-option value="" disabled>Age range</ion-select-option>
+        <ion-select-option value="18-65">18-65</ion-select-option>
+        <ion-select-option value="66-74">66-74</ion-select-option>
+        <ion-select-option value="75-85">75-85</ion-select-option>
+        <ion-select-option value="86-90">86-90</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-text color="danger">
+      <p color="danger" style="margin-left: 5%;">{{ageErr}}</p>
+    </ion-text>
+    <ion-item>
+      <ion-label position="floating">RSA ID Number</ion-label>
+      <ion-input type="text" formControlName="idNum" minlength="13" maxlength="13" required></ion-input>
+      <ion-text color="danger">
+        <p color="danger" style="margin-left: 5%;">{{idnumErr}}</p>
+      </ion-text>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-button class="button button-block button-positive" routerLink="/products"> Cancel</ion-button>
+      <ion-button class="button button-block button-positive" type="submit"> Submit</ion-button>
+    </ion-item>
+  </form>
+</ion-content>

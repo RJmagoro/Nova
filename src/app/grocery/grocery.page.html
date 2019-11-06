@@ -1,0 +1,81 @@
+
+
+<ion-content >
+    
+        <header>
+            <ion-row class="row1">
+              <ion-menu-button style="color:#fff"></ion-menu-button>
+            </ion-row>
+              <ion-row>
+               
+              
+              
+                <ion-img src="/assets/images/header.jpeg" class="logo"></ion-img>
+            
+             
+            </ion-row>
+    
+        </header>
+        <br>
+        
+        <div class="box"> 
+                <ion-row class="title">
+    
+                        <ion-img class="a" src="assets/images/groceries.png" ></ion-img>&nbsp;&nbsp;
+                         <h2>Grocery Benefit</h2>
+                
+                </ion-row>
+                <ion-list>
+                    <ol>
+                        <h4 class="insurance-title">Grocery funeral plan</h4>
+                        
+                        <h5>Single member or Family cover </h5>
+                          <p>Age: 18-65</p>
+                          <li>R50/month R7000 grocery</li>
+                          <li>R100/month R10 000 grocery</li>
+                         
+                          </ol>
+                          <ion-item>
+                                <ion-label>Cash payout</ion-label>
+                                <ion-select interface="popover" placeholder="Select One" [(ngModel)]="cost">
+                                    <ion-select-option value="7000">R 7 000</ion-select-option>
+                                    <ion-select-option value="10000">R 10 000</ion-select-option>
+                                </ion-select>
+                 </ion-item>      
+    
+    
+                        </ion-list>
+                <ion-row>
+                        <ion-segment class="round">
+                                
+                                    <ion-segment-button (click)="cash()">
+                                        <ion-img class="a" src="assets/images/shopping-cart.png"></ion-img>
+                                           <a>Buy now</a>
+                                          </ion-segment-button>
+                                
+                            
+                            <ion-segment-button routerLink="/contacts">
+                                    
+                                           
+                                        <ion-img class="a" src="assets/images/call.svg"></ion-img>
+                                        <a>Contact</a>
+                                            
+                                   
+                            </ion-segment-button>
+                            <ion-segment-button routerLink="/terms">
+                                <ion-img class="a" src="assets/images/terms.png"></ion-img>
+                                
+                            <a>Terms</a>
+                            </ion-segment-button>
+                       </ion-segment>
+                           
+                    
+                    </ion-row>  
+        </div> 
+      
+      
+      
+    </ion-content>
+    
+    
+    

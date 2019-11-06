@@ -1,0 +1,96 @@
+<ion-content>
+  <header>
+    <ion-row class="row1">
+      <ion-menu-button style="color:#fff"></ion-menu-button>
+    </ion-row>
+
+    <div class="policies">
+      <h2>Remove Member</h2>
+    </div>
+
+    <!-- <ion-img src="/assets/images/header.jpeg" class="logo"></ion-img> -->
+
+
+
+
+  </header>
+
+  <ion-card class="ion-margin-start ion-margin-end">
+    <ion-card-content style="background-color: gray;">
+      <h1>Spouse</h1><br>
+
+      <span *ngIf="spouse.length > 0">
+        <span *ngFor="let s of spouse">
+          <li>
+            {{s.name}} {{s.surname}}
+            <ion-text float-right color="danger" (click)="removeSpouse(s)">Remove</ion-text>
+          </li>
+        </span>
+      </span>
+      <span *ngIf="spouse.length < 1">
+        <li>No information found!</li>
+      </span>
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-margin-start ion-margin-end">
+    <ion-card-content style="background-color: gray;">
+      <h1>Beneficiary</h1><br>
+
+      <span *ngIf="beneficiary.length > 0">
+        <span *ngFor="let ben of beneficiary">
+          <li>
+            {{ben.name}} {{ben.surname}}
+            <ion-text float-right color="danger" (click)="removeBeneficiary(ben)"> Remove</ion-text>
+          </li>
+        </span>
+      </span>
+      <span *ngIf="beneficiary.length < 1">
+        <li>No information found!</li>
+      </span>
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-margin-start ion-margin-end">
+    <ion-card-content style="background-color: gray;">
+      <h1>Children</h1><br>
+
+      <span *ngIf="children.length > 0">
+        <span *ngFor="let c of children">
+          <li>
+            {{c.name}} {{c.surname}}
+            <ion-text float-right color="danger" (click)="removeChildren(c)">Remove</ion-text>
+          </li>
+        </span>
+      </span>
+
+      <span *ngIf="children.length < 1">
+        <li>No information found!</li>
+      </span>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-margin-start ion-margin-end">
+    <ion-card-content style="background-color: gray;">
+      <h1>Extended Family</h1><br>
+      <span *ngIf="extended.length > 0">
+        <span *ngFor="let e of extended">
+          <li>
+            {{e.name}} {{e.surname}}
+            <ion-text float-right color="danger" (click)=" removeExtended(e)">Remove</ion-text>
+          </li>
+        </span>
+      </span>
+      <span *ngIf="extended.length < 1">
+        <li>No information found!</li>
+      </span>
+
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

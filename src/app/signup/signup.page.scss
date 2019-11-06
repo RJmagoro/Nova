@@ -1,0 +1,17 @@
+ion-button {
+    width: 90%;
+    margin: 5%;
+}
+
+ion-toggle {
+    float: right;
+}
+
+form {
+    background-image: url("/assets/images/background.jpeg");
+    padding-bottom: 20px;
+}
+
+ion-item {
+    --border-color: var(--ion-color-primary, #3e5c9a);
+}

@@ -1,0 +1,66 @@
+<ion-content>
+  <header>
+    <ion-row class="row1">
+      <ion-col>
+        <ion-menu-button color="light"></ion-menu-button>
+      </ion-col>
+      <ion-col>
+        <ion-img src="/assets/images/header.jpeg" class="logo"></ion-img>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col class="ion-text-center">
+        <ion-img src="{{pic}}" class="profPic"></ion-img>
+        <ion-text color="light">
+          <h5>{{name}}</h5>
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="camera" (click)="fileinput.click()" style="zoom:2.0;"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col class="ion-text-center">
+        <ion-text color="light">{{policy}} Active Policy</ion-text>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </header>
+
+  <div class="box ion-text-center">
+    <ion-row>
+      <ion-col routerLink="/policies">
+        <ion-img src="assets/images/message.png"></ion-img>
+        <a>Policy</a>
+      </ion-col>
+      <ion-col routerLink="/claims">
+        <ion-img src="assets/images/claim.png"></ion-img>
+        <a>Claims</a>
+      </ion-col>
+      <ion-col routerLink="/products">
+        <ion-img src="assets/images/product.png"></ion-img>
+        <a routerLink="/products">Products</a>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col routerLink="/contacts">
+        <ion-img src="assets/images/phone.png"></ion-img>
+        <a>Contacts</a>
+      </ion-col>
+      <ion-col routerLink="/help">
+        <ion-img src="assets/images/information.png"></ion-img>
+        <a>Help</a>
+      </ion-col>
+      <ion-col routerLink="/paystack">
+        <ion-img src="assets/images/money.png"></ion-img>
+        <a>Payments</a>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+<input type="file" (change)="uploadFile($event)" style="display:none" accept="image/png, image/jpeg" #fileinput>

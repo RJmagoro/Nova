@@ -1,0 +1,93 @@
+ion-button {
+  width: 40%;
+  margin: 5%;
+  
+}
+ion-icon {
+  width: 10%;
+  height: 30px;
+  
+  text-align: center;
+  line-height: 30px;
+  color: #3e5c9a;
+  border-radius: 10PX;
+ }
+ion-toggle {
+  float: right;
+}
+
+h2{text-align: center;}
+header{
+  background-color: #3e5c9a;
+  
+  // height: 100px;
+  // ion-img{
+  //     width: 150px;
+  //     margin-left: 25%;
+  // }
+ 
+}
+form{
+  //height: 40%;
+  
+  margin-left:50px;
+  margin-right:50px;
+  border-radius: 10px;
+  
+}
+.form1 {
+  background-color: #b2ffe5;
+  margin-top: 10px;
+  padding-bottom: 15px;
+}
+.form2 {
+  background-color: #76a6cf;
+  margin-top: -10px;
+}
+h4{
+  color: #3e5c9a;
+  text-align: center;
+}
+h6{
+  color: #505255;
+  text-align: center;
+}
+h3{
+  color: #fff;
+  text-align: center;
+}
+#myProgress {
+  width: 70%;
+  background-color: #3e5c9a;
+  border-radius: 10PX;
+  margin-left: 10PX;
+  margin-right: 10PX;
+  
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 30px;
+  color: #3e5c9a;
+  border-radius: 10PX;
+}
+p.speech {
+  position: relative;
+  width: 70px;
+  height: 30px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #666;
+  border-radius: 5px;
+  margin-left: 10px;
+ 
+}
+ion-content{
+  --ion-color-primary: #3e5c9a;
+}
+input{
+  margin:5%;
+}
